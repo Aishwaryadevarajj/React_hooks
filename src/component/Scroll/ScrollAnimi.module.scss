@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  margin: 4vh;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.leftSection {
+  width: 70%;
+  padding: 20px;
+  color: #fff;
+  position: fixed;
+  margin-top: 8vh;
+
+  .textContent {
+    width: 40%;
+    .paragraph {
+      color: #fff !important;
+    }
+  }
+}
+
+.rightSection {
+  width: 40%;
+
+  padding: 20px;
+  position: absolute;
+  right: 0;
+
+  scroll-behavior: smooth;
+}
+// .logoContainer {
+//   animation: scrollAnimation 4s linear infinite;
+// }
+.logo {
+  width: 180px;
+  height: 100px;
+  padding: 1vh;
+}
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100% - 10px));
+  }
+}

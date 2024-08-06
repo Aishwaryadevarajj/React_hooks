@@ -1,0 +1,208 @@
+
+
+.profileHeaderContainer {
+    // overflow: hidden;
+    // padding-bottom: 2.5vh;
+    // padding-top: 2.1vh;
+    // overflow-x: hidden;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 0.3vh;
+
+    @keyframes displaySlowly {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .textContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: fit-content;
+    }
+
+    .profileHeading {
+        // flex-shrink: 0;
+        font-family:  sans-serif;
+        display: flex;
+
+        @media screen and (max-width: 600px) {
+            cursor: default;
+        }
+
+        flex-wrap: wrap;
+
+        .text {
+            margin-right: calc(-1 * var(--unit-p-fx));
+            font-family:  sans-serif;
+            margin-right: calc(-1 * var(--unit-p-fx));
+
+            @media screen and (max-width: 600px) {
+                margin-right: calc(-1 * var(--unit-p-belo600-fx));
+            }
+        }
+    }
+
+    .lineSuperContainer,
+    .hideLineSuperContainer {
+        overflow: hidden;
+        height: 2px;
+        display: flex;
+
+        .lineContainer {
+            display: flex;
+            transform: translateX(-200%);
+            width: 100%;
+            height: 0.01vh;
+            gap: 10%;
+
+            .line_1 {
+                background-color: var(--black);
+                width: 100%;
+                flex-shrink: 0;
+                height: 100%;
+            }
+
+            .line_2 {
+                background-color: var(--black);
+                width: 10%;
+                height: 100%;
+                flex-shrink: 0;
+            }
+        }
+    }
+    .hideLineSuperContainer {
+        opacity: 0;
+    }
+
+    .activeProgressLine {
+        overflow: hidden;
+        height: 1.2px;
+        display: flex;
+        position: relative;
+    }
+
+    .activeProgressLine::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--black);
+        animation: progressAnimation 3s linear forwards;
+    }
+
+    @keyframes progressAnimation {
+        0% {
+            width: 0;
+        }
+
+        50% {
+            width: 50%;
+        }
+
+        100% {
+            width: 100%;
+        }
+    }
+}
+
+.textGap {
+    visibility: hidden;
+    // width: calc(15 * var(--unit-fx));
+    // @media only screen and (min-width: 601px) and (max-width: 767px) {
+    //     width: calc(10 * var(--unit-fx));
+    // }
+    // @media screen and (max-width: 600px) {
+    //     width: calc(5 * var(--unit-belo600-fx));
+    // }
+}
+
+.profileHeaderContainer:hover .lineContainer {
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: leftToRight forwards;
+    // animation-name: leftToRight;
+    // animation-duration: 0.6s;
+    // animation-direction: forwards;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+// .profileHeaderContainer:hover .flickerAnimation {
+//     animation: flicker ease-out;
+//     // animation-duration: 0.2s;
+//     //   opacity: 1
+//     color: inherit;
+// }
+// .profileHeaderContainer:not(hover) .flickerAnimation {
+//     animation: notFlicker ease-out;
+//     // animation-duration: 0.2s;
+//     //   opacity: 1;
+//     color: inherit;
+// }
+
+@keyframes leftToRight {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes removeUnderlineAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-500%);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// .profileHeaderContainer:hover .profileHeading {
+//     animation: transformFromBelow 0.6s ease-in forwards;
+// }
+@keyframes transformFromBelow {
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        color: translateY(0%);
+    }
+}
